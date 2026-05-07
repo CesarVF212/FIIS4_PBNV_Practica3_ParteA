@@ -32,13 +32,17 @@ int main(int args, char** argv)
     matrix4x4f* A2 = new matrix4x4f[NUM_MATRIX];
     matrix4x4f* AResultados = new matrix4x4f[NUM_MATRIX];
 
-
     // A las A las rellenamos con valores aleatorios. Vamos a permitir floats entre -100 y 100.
     A1 = fillRandom(A1, NUM_MATRIX);
     A2 = fillRandom(A2, NUM_MATRIX);
 
-    // Imprimimos una aletoria.
-    printMatrix(A1[500]);
+    // Llamamos de forma iterada a la multiplicacion de matrices tradicional.
+    for(int iter = 0; iter < NUM_MATRIX; iter++)
+    {
+        AResultados[iter] = multMatrix_tradicional(A1[iter], A2[iter]);
+    }
 
+    printMatrix(AResultados[0]);
+    
     return 0;
 }
